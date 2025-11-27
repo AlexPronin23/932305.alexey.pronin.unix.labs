@@ -28,10 +28,11 @@ public:
                 event_data = make_shared<string>("Event data " + to_string(i));
                 event_ready = true;
                 cout << "Поставщик: отправил событие '" << *event_data << "'" << endl;
+                cv.notify_one();
             } 
 
           
-            cv.notify_one();
+         
         }
     }
 
